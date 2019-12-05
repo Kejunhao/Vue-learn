@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<div id="app">
+	<input type="text" v-model="firstname">+
+	<input type="text" v-model="lastname">=
+	<input type="text" v-model="fullname">
+</div>
+
+
+</body>
+<script src="../js/vue.js"></script>
+<script>
+new Vue({
+
+	el:"#app",
+	data:{
+		firstname:"",
+		lastname:"",
+		fullname:""
+	},
+	methods:{},
+	watch:{
+		// firstname(newVal1 newVal2){
+		// 	this.fullname = newVal1+'-'+this.lastname;	
+		// },
+
+		firstname(){
+			this.fullname = this.firstname+'-'+this.lastname;	
+		},
+		lastname(){
+			this.fullname = this.firstname+'-'+this.lastname;	
+		}
+	}
+		
+})
+</script>
+</html>

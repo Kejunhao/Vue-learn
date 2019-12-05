@@ -1,0 +1,63 @@
+<html>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+		
+		
+<body>
+		<div id="app">
+				<h1>Hello App!</h1>
+				<p>
+				  <!-- 使用 router-link 组件来导航. -->
+				  <!-- 通过传入 `to` 属性指定链接. -->
+				  <!-- <router-link> 默认会被渲染成一个 `<a>` 标签 -->
+				  <router-link to="/foo">Go to Foo</router-link>
+				  <router-link to="/bar122">Go to Bar</router-link>
+				</p>
+				<!-- 路由出口 -->
+				<!-- 路由匹配到的组件将渲染在这里 -->
+				<router-view></router-view>
+			  </div>
+			  <template id="temp1">
+				  <h1>i love you</h1>
+			  </template>
+
+</body>
+
+
+<script>
+
+
+
+
+
+
+
+var router = new VueRouter({
+  routes:[
+  { path: '/foo', component:{ template: '#temp1' } },
+  { path: '/bar122', component: { template: '<div>bar</div>' } }
+] // (缩写) 相当于 routes: routes
+})
+
+
+var vm = new Vue({
+  router,
+  watch:{
+      '$route.path' :function(newVal1,oldVal1){
+        //   console.log(newVal1 + '-' +oldVal1);
+          if(newVal1 == "/foo"){
+              console.log("欢饮来到此地");
+          }else{
+              console.log("拜拜");
+              
+          }
+
+      }
+  }
+}).$mount('#app')
+
+// 现在，应用已经启动了！
+	
+</script>
+
+</html>
